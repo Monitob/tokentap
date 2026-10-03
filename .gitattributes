@@ -1,0 +1,18 @@
+# Normalize line endings across platforms — CRLF on Windows, LF on Unix.
+* text=auto eol=lf
+
+# Ensure shell scripts and Node entrypoints are always LF.
+*.sh         text eol=lf
+*.js         text eol=lf
+*.json       text eol=lf
+*.md         text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+Dockerfile   text eol=lf
+LICENSE      text eol=lf
+
+# Binary files — never touch.
+*.png  binary
+*.jpg  binary
+*.ico  binary
+*.pdf  binary

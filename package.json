@@ -1,0 +1,44 @@
+{
+  "name": "tokentap",
+  "version": "1.0.0",
+  "description": "A zero-dependency reverse proxy that caps max_tokens in LLM API requests so models with lower output-token limits are not rejected.",
+  "license": "MIT",
+  "author": "Monitob",
+  "homepage": "https://github.com/Monitob/tokentap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Monitob/tokentap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Monitob/tokentap/issues"
+  },
+  "keywords": [
+    "llm",
+    "proxy",
+    "anthropic",
+    "claude",
+    "max-tokens",
+    "token-limit",
+    "reverse-proxy",
+    "scaleway",
+    "openai",
+    "api-gateway"
+  ],
+  "bin": {
+    "tokentap": "bin/tokentap.js"
+  },
+  "main": "bin/tokentap.js",
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "start": "node bin/tokentap.js",
+    "dev": "LOG_LEVEL=debug node bin/tokentap.js",
+    "health": "node -e \"fetch('http://127.0.0.1:'+(process.env.PORT||3459)+'/health').then(r=>r.json()).then(j=>console.log(JSON.stringify(j,null,2))).catch(e=>{console.error(e.message);process.exit(1)})\""
+  }
+}

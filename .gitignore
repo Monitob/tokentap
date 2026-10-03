@@ -1,0 +1,75 @@
+# ─── Secrets & environment ─────────────────────────────────────────────────
+# NEVER commit real credentials, API keys, or tokens.
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# Credential / key files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+id_rsa
+id_rsa.pub
+*_token*
+*api_token*
+*access_token*
+*auth_token*
+*.token
+
+# ─── Node.js ────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm
+.pnpm-store/
+
+# ─── Logs ───────────────────────────────────────────────────────────────────
+# Logs may contain request/response bodies with sensitive data.
+logs/
+*.log
+log-*
+
+# ─── Runtime / cache ────────────────────────────────────────────────────────
+.cache/
+.tmp/
+tmp/
+*.pid
+*.seed
+*.pid.lock
+
+# ─── OS files ──────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ─── IDE / editor ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# ─── Test / coverage ────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+*.lcov
+
+# ─── Build output ───────────────────────────────────────────────────────────
+dist/
+build/
+out/
