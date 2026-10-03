@@ -1,0 +1,35 @@
+# ─────────────────────────────────────────────────────────────────────────
+# TokenTap — Podman / Docker Compose
+#
+# Publishes the proxy on the host at 127.0.0.1:3459 and forwards to a
+# host-side upstream (e.g. Claude Code Router on 127.0.0.1:3456).
+#
+# host.docker.internal resolves to the host on Docker Desktop and Podman.
+# The extra_hosts entry also makes it work on plain Linux Docker.
+#
+#   podman compose up -d --build      # build & start
+#   podman compose logs -f            # tail logs
+#   podman compose down               # stop & remove
+# ─────────────────────────────────────────────────────────────────────────
+services:
+  tokentap:
+    image: tokentap:local
+    container_name: tokentap
+    build:
+      context: .
+      dockerfile: Containerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3459:3459"
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "3459"
+      TARGET_HOST: "host.docker.internal"
+      TARGET_PORT: "3456"
+      MAX_TOKENS_CAP: "16384"
+      MODEL_CAPS: ""
+      LOG_LEVEL: "info"
+      HEALTH_PATH: "/health"
+    extra_hosts:
+      # host-gateway is a magic value Podman/Docker resolve to the host IP.
+      - "host.docker.internal:host-gateway"

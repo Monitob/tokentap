@@ -1,0 +1,27 @@
+# Keep the build context small and secret-free.
+.git
+.gitignore
+.gitattributes
+.env
+.env.*
+!.env.example
+logs/
+*.log
+log-*
+_test_out.log
+_test_out.*
+node_modules/
+.cache/
+.tmp/
+tmp/
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+.vscode/
+.idea/
+*.swp
+*.swo
+Dockerfile
+docker-compose.yml
